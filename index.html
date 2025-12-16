@@ -35,7 +35,7 @@
         <option value="Ground Branch Director">Ground Branch Director</option>
         <option value="Member">Member</option>
     </select>
-    <button onclick="enterApp()">Enter</button>
+    <button id="enterBtn">Enter</button>
 </div>
 
 <!-- MAIN APP -->
@@ -54,43 +54,39 @@
         <div id="localTime"></div>
         <div id="zuluTime"></div>
         <span id="currentRole"></span>
-        <button onclick="logout()">Logout</button>
+        <button id="logoutBtn">Logout</button>
     </div>
 </header>
 
 <div class="container">
     <nav class="sidebar">
-        <button onclick="showSection('dashboard')">Dashboard</button>
-        <button onclick="showSection('status')">Status Boards</button>
-        <button onclick="showSection('personnel')">Personnel</button>
-        <button onclick="showSection('resources')">Resources</button>
-        <button onclick="showSection('communications')">Communications</button>
-        <button onclick="showSection('documents')">Documents</button>
-        <button onclick="showSection('whiteboard')">Whiteboard</button>
-        <button onclick="showSection('audit')">Activity Log</button>
-        <button onclick="endIncident()">End Incident</button>
+        <button data-section="dashboard">Dashboard</button>
+        <button data-section="status">Status Boards</button>
+        <button data-section="personnel">Personnel</button>
+        <button data-section="resources">Resources</button>
+        <button data-section="communications">Communications</button>
+        <button data-section="documents">Documents</button>
+        <button data-section="whiteboard">Whiteboard</button>
+        <button data-section="audit">Activity Log</button>
+        <button id="endIncidentBtn">End Incident</button>
     </nav>
 
     <main class="content">
-
-        <!-- DASHBOARD -->
         <section id="dashboard" class="section">
             <h2>Dashboard</h2>
             <textarea id="dashboardNotes" placeholder="General incident notes"></textarea>
-            <button onclick="saveDashboard()">Save</button>
+            <button id="saveDashboardBtn">Save</button>
         </section>
 
-        <!-- STATUS BOARDS -->
         <section id="status" class="section hidden">
             <h2>Status Boards</h2>
-            <button onclick="addBoard()">Add Board</button>
+            <button id="addBoardBtn">Add Board</button>
             <div id="boards"></div>
         </section>
 
-        <!-- PERSONNEL -->
         <section id="personnel" class="section hidden">
             <h2>Personnel</h2>
-            <button onclick="addPerson()">Add Person</button>
+            <button id="addPersonBtn">Add Person</button>
             <table>
                 <thead>
                     <tr>
@@ -103,13 +99,12 @@
                 </thead>
                 <tbody id="personnelTable"></tbody>
             </table>
-            <button onclick="savePersonnel()">Save</button>
+            <button id="savePersonnelBtn">Save</button>
         </section>
 
-        <!-- RESOURCES -->
         <section id="resources" class="section hidden">
             <h2>Resources</h2>
-            <button onclick="addResource()">Add Resource</button>
+            <button id="addResourceBtn">Add Resource</button>
             <table>
                 <thead>
                     <tr>
@@ -123,17 +118,15 @@
                 </thead>
                 <tbody id="resourceTable"></tbody>
             </table>
-            <button onclick="saveResources()">Save</button>
+            <button id="saveResourcesBtn">Save</button>
         </section>
 
-        <!-- COMMUNICATIONS BOARD -->
         <section id="communications" class="section hidden">
             <h2>Communications Board</h2>
             <textarea id="commNotes" placeholder="Frequencies, call signs, channels, bridges"></textarea>
-            <button onclick="saveComm()">Save</button>
+            <button id="saveCommBtn">Save</button>
         </section>
 
-        <!-- DOCUMENTS -->
         <section id="documents" class="section hidden">
             <h2>Documents</h2>
             <p class="notice">
@@ -141,7 +134,7 @@
                 Files must be transferred to official systems post-incident.
             </p>
             <input type="file" id="fileInput" multiple>
-            <button onclick="addFiles()">Add Files</button>
+            <button id="addFilesBtn">Add Files</button>
             <table>
                 <thead>
                     <tr>
@@ -155,18 +148,15 @@
             </table>
         </section>
 
-        <!-- WHITEBOARD -->
         <section id="whiteboard" class="section hidden">
             <h2>Whiteboard (Placeholder)</h2>
             <p>Whiteboard functionality coming soon.</p>
         </section>
 
-        <!-- ACTIVITY LOG -->
         <section id="audit" class="section hidden">
             <h2>Activity Log</h2>
             <ul id="auditList"></ul>
         </section>
-
     </main>
 </div>
 </div>
